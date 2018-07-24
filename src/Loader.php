@@ -113,28 +113,28 @@ class Loader
 				if ($modifier) {
 					if ($country) {
 						if ($charset) {
-							array_push($locale_names, "${lang}_$country.$charset@$modifier");
+							$locale_names[] = "${lang}_$country.$charset@$modifier";
 						}
-						array_push($locale_names, "${lang}_$country@$modifier");
+						$locale_names[] = "${lang}_$country@$modifier";
 					} elseif ($charset) {
-						array_push($locale_names, "${lang}.$charset@$modifier");
+						$locale_names[] = "${lang}.$charset@$modifier";
 					}
-					array_push($locale_names, "$lang@$modifier");
+					$locale_names[] = "$lang@$modifier";
 				}
 				if ($country) {
 					if ($charset) {
-						array_push($locale_names, "${lang}_$country.$charset");
+						$locale_names[] = "${lang}_$country.$charset";
 					}
-					array_push($locale_names, "${lang}_$country");
+					$locale_names[] = "${lang}_$country";
 				} elseif ($charset) {
-					array_push($locale_names, "${lang}.$charset");
+					$locale_names[] = "${lang}.$charset";
 				}
-				array_push($locale_names, $lang);
+				$locale_names[] = $lang;
 			}
 
 			// If the locale name doesn't match POSIX style, just include it as-is.
 			if (!in_array($locale, $locale_names)) {
-				array_push($locale_names, $locale);
+				$locale_names[] = $locale;
 			}
 		}
 
